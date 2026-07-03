@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Alonzo Alden is a Senior Front-End Engineer specializing in Angular, TypeScript, enterprise SaaS, frontend platforms, and AI-assisted engineering workflows."
+    />
+    <meta name="theme-color" content="#0e7c7b" />
+    <meta property="og:title" content="Alonzo Alden | Senior Front-End Engineer" />
+    <meta
+      property="og:description"
+      content="Angular, TypeScript, and production UI for complex SaaS products."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alonzoalden.com" />
+    <meta property="og:image" content="https://alonzoalden.com/assets/hero-workspace.jpg" />
+    <title>Alonzo Alden | Senior Front-End Engineer</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #1d2428;
+        --muted: #59656d;
+        --paper: #fbfaf7;
+        --surface: #ffffff;
+        --soft: #edf6f4;
+        --line: #d8e1dc;
+        --teal: #0e7c7b;
+        --teal-dark: #0a5556;
+        --clay: #b66f4f;
+        --gold: #c59a37;
+        --night: #142024;
+        --shadow: 0 18px 45px rgba(24, 36, 40, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.2em;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 760px;
+        font-size: clamp(3.8rem, 10vw, 8.4rem);
+      }
+
+      h2 {
+        font-size: clamp(2rem, 5vw, 4.1rem);
+      }
+
+      h3 {
+        font-size: 1.12rem;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        border-bottom: 1px solid rgba(216, 225, 220, 0.72);
+        background: rgba(251, 250, 247, 0.88);
+        backdrop-filter: blur(16px);
+      }
+
+      .topbar-inner {
+        display: flex;
+        min-height: 70px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--ink);
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border-radius: 8px;
+        color: #ffffff;
+        background: linear-gradient(135deg, var(--teal), var(--clay));
+        box-shadow: 0 10px 24px rgba(14, 124, 123, 0.24);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: var(--muted);
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+
+      .nav a {
+        text-decoration: none;
+      }
+
+      .nav a:hover {
+        color: var(--teal-dark);
+      }
+
+      .hero {
+        position: relative;
+        isolation: isolate;
+        min-height: 64svh;
+        overflow: hidden;
+        color: #ffffff;
+        background: var(--night);
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero::before {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        content: "";
+        background:
+          linear-gradient(90deg, rgba(20, 32, 36, 0.94) 0%, rgba(20, 32, 36, 0.82) 38%, rgba(20, 32, 36, 0.28) 100%),
+          linear-gradient(180deg, rgba(20, 32, 36, 0.16), rgba(20, 32, 36, 0.72));
+      }
+
+      .hero-inner {
+        display: grid;
+        min-height: 64svh;
+        align-items: end;
+        padding: 62px 0 46px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        width: fit-content;
+        margin-bottom: 18px;
+        padding: 7px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #f5e7c2;
+        font-size: 0.88rem;
+        font-weight: 800;
+      }
+
+      .hero-lead {
+        max-width: min(720px, 100%);
+        margin-top: 22px;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: clamp(1.08rem, 2vw, 1.3rem);
+        overflow-wrap: break-word;
+      }
+
+      .hero-copy {
+        min-width: 0;
+        max-width: 780px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 18px;
+        border: 1px solid rgba(255, 255, 255, 0.38);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        color: #ffffff;
+        font-weight: 850;
+        text-decoration: none;
+        transition:
+          transform 160ms ease,
+          background 160ms ease,
+          border-color 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+        border-color: rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .button.primary {
+        border-color: #ffffff;
+        background: #ffffff;
+        color: var(--night);
+      }
+
+      .button.dark {
+        border-color: var(--teal);
+        background: var(--teal);
+        color: #ffffff;
+      }
+
+      .hero-facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 34px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .hero-facts li {
+        max-width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 999px;
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.84);
+        font-size: 0.92rem;
+        font-weight: 750;
+      }
+
+      main {
+        background:
+          linear-gradient(180deg, #ffffff 0%, var(--paper) 36rem),
+          var(--paper);
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.7fr);
+        gap: 28px;
+        align-items: end;
+        margin-bottom: 28px;
+      }
+
+      .section-head p {
+        color: var(--muted);
+        font-size: 1.02rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .tile,
+      .resume-panel,
+      .experience,
+      .project,
+      .contact-band {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .tile {
+        min-height: 188px;
+        padding: 22px;
+      }
+
+      .tile-kicker {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: var(--clay);
+        font-size: 0.85rem;
+        font-weight: 850;
+      }
+
+      .tile p,
+      .resume-panel li,
+      .experience li,
+      .project li,
+      .contact-band p {
+        color: var(--muted);
+      }
+
+      .tile p {
+        margin-top: 12px;
+      }
+
+      .resume-layout {
+        display: grid;
+        grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1.3fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .resume-sidebar {
+        position: sticky;
+        top: 94px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .resume-panel {
+        padding: 22px;
+      }
+
+      .resume-panel ul {
+        display: grid;
+        gap: 9px;
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .resume-panel strong {
+        color: var(--ink);
+      }
+
+      .resume-stack {
+        display: grid;
+        gap: 16px;
+      }
+
+      .experience,
+      .project {
+        padding: 24px;
+      }
+
+      .role-line {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px 16px;
+        margin-bottom: 14px;
+      }
+
+      .role-line span {
+        color: var(--muted);
+        font-size: 0.94rem;
+        font-weight: 700;
+      }
+
+      .experience ul,
+      .project ul {
+        display: grid;
+        gap: 9px;
+        margin: 0;
+        padding-left: 1.15rem;
+      }
+
+      .project-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .contact-band {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: center;
+        padding: 30px;
+        background:
+          linear-gradient(135deg, rgba(14, 124, 123, 0.1), rgba(182, 111, 79, 0.08)),
+          #ffffff;
+      }
+
+      .contact-band .actions {
+        margin-top: 0;
+      }
+
+      .contact-band .button {
+        border-color: var(--line);
+        background: #ffffff;
+        color: var(--ink);
+      }
+
+      .contact-band .button.dark {
+        border-color: var(--teal);
+        background: var(--teal);
+        color: #ffffff;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 30px 0;
+        color: var(--muted);
+        background: #ffffff;
+      }
+
+      @media (max-width: 900px) {
+        .nav {
+          display: none;
+        }
+
+        .hero,
+        .hero-inner {
+          min-height: 60svh;
+        }
+
+        .hero-bg {
+          object-position: 58% center;
+        }
+
+        .section-head,
+        .resume-layout,
+        .contact-band {
+          grid-template-columns: 1fr;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .resume-sidebar {
+          position: static;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .shell {
+          width: min(100% - 28px, 1120px);
+        }
+
+        .topbar-inner {
+          min-height: 64px;
+        }
+
+        h1 {
+          font-size: clamp(3.4rem, 18vw, 5.4rem);
+        }
+
+        .hero,
+        .hero-inner {
+          min-height: 56svh;
+        }
+
+        .hero-inner {
+          padding: 42px 0 34px;
+        }
+
+        .hero-copy {
+          max-width: 360px;
+        }
+
+        section {
+          padding: 52px 0;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .hero-facts {
+          display: none;
+        }
+      }
+
+      @media print {
+        .topbar,
+        .hero,
+        .actions,
+        .contact-band,
+        footer {
+          display: none;
+        }
+
+        body,
+        main {
+          background: #ffffff;
+        }
+
+        section {
+          padding: 14px 0;
+        }
+
+        .shell {
+          width: 100%;
+        }
+
+        .resume-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .resume-sidebar {
+          position: static;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <a class="brand" href="#top" aria-label="Alonzo Alden home">
+          <span class="brand-mark">AA</span>
+          <span>Alonzo Alden</span>
+        </a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#work">Work</a>
+          <a href="#resume">Resume</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <div id="top" class="hero">
+      <img
+        class="hero-bg"
+        src="assets/hero-workspace.jpg"
+        alt=""
+        width="1672"
+        height="941"
+        aria-hidden="true"
+      />
+      <div class="shell hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Senior Front-End Engineer</p>
+          <h1>Alonzo Alden</h1>
+          <p class="hero-lead">
+            Angular, TypeScript, and production UI for complex SaaS products,
+            frontend platforms, API-backed workflows, and practical AI-assisted
+            engineering.
+          </p>
+          <div class="actions">
+            <a
+              class="button primary"
+              href="assets/Alonzo_Alden_Senior_Frontend_Engineer_Resume_2026.pdf"
+              download
+            >
+              Download Resume PDF
+            </a>
+            <a class="button" href="#resume">Read Resume</a>
+            <a class="button" href="mailto:alonzoalden@gmail.com">Email</a>
+          </div>
+          <ul class="hero-facts" aria-label="Profile highlights">
+            <li>Los Angeles / Palmdale, CA</li>
+            <li>9+ years experience</li>
+            <li>Angular, TypeScript, SaaS</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <section id="work" class="shell">
+        <div class="section-head">
+          <h2>Frontend systems for real product complexity.</h2>
+          <p>
+            I work across product requirements, domain rules, shared UI patterns,
+            API integrations, performance work, and the day-to-day engineering
+            habits that keep production software healthy.
+          </p>
+        </div>
+        <div class="grid">
+          <article class="tile">
+            <span class="tile-kicker">01</span>
+            <h3>Angular Applications</h3>
+            <p>
+              Production Angular and TypeScript features, component architecture,
+              RxJS, NgRx, Signals, SCSS, and responsive UI.
+            </p>
+          </article>
+          <article class="tile">
+            <span class="tile-kicker">02</span>
+            <h3>Frontend Platforms</h3>
+            <p>
+              Nx monorepos, shared libraries, reusable UI patterns, feature
+              modules, code organization, and maintainable team workflows.
+            </p>
+          </article>
+          <article class="tile">
+            <span class="tile-kicker">03</span>
+            <h3>AI-Assisted Engineering</h3>
+            <p>
+              Codebase exploration, implementation planning, refactor support,
+              debugging, review support, and human-owned delivery.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="resume" class="shell">
+        <div class="section-head">
+          <h2>Resume</h2>
+          <p>
+            This is the web version of my resume. The downloadable PDF is
+            formatted for recruiters, applications, and hiring teams.
+          </p>
+        </div>
+
+        <div class="resume-layout">
+          <aside class="resume-sidebar" aria-label="Resume details">
+            <div class="resume-panel">
+              <h3>Contact</h3>
+              <ul>
+                <li>
+                  <strong>Email:</strong>
+                  <a href="mailto:alonzoalden@gmail.com">alonzoalden@gmail.com</a>
+                </li>
+                <li>
+                  <strong>LinkedIn:</strong>
+                  <a href="https://www.linkedin.com/in/alonzo-alden/">linkedin.com/in/alonzo-alden</a>
+                </li>
+                <li>
+                  <strong>GitHub:</strong>
+                  <a href="https://github.com/alonzoalden">github.com/alonzoalden</a>
+                </li>
+                <li>
+                  <strong>Website:</strong>
+                  <a href="https://alonzoalden.com">alonzoalden.com</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="resume-panel">
+              <h3>Technical Skills</h3>
+              <ul>
+                <li><strong>Frontend:</strong> Angular, TypeScript, JavaScript, RxJS, NgRx, Signals, HTML, CSS, SCSS</li>
+                <li><strong>Architecture:</strong> Component architecture, Nx monorepos, shared UI libraries, SSR, PWA, REST API integration</li>
+                <li><strong>Delivery:</strong> Code reviews, debugging, CI/CD workflows, build troubleshooting, release verification</li>
+                <li><strong>Tools:</strong> Node.js, Express.js, .NET/C#, Swagger/OpenAPI, Git, GitHub, Jira, Browser DevTools</li>
+                <li><strong>Performance:</strong> SEO, Lighthouse, Core Web Vitals, network/console debugging, cross-browser UI testing</li>
+              </ul>
+            </div>
+
+            <div class="resume-panel">
+              <h3>Education</h3>
+              <ul>
+                <li><strong>Hack Reactor</strong> - Full Stack JavaScript Engineering Immersive, 2016</li>
+                <li><strong>San Francisco State University</strong> - Bachelor's Degree, 2012</li>
+              </ul>
+            </div>
+          </aside>
+
+          <div class="resume-stack">
+            <article class="experience">
+              <div class="role-line">
+                <h3>Crexi - Senior Front-End Engineer</h3>
+                <span>Los Angeles / Remote | Jun 2021 - Jun 2026</span>
+              </div>
+              <ul>
+                <li>Built and maintained production Angular/TypeScript features for a commercial real estate marketplace and SaaS platform serving external users and internal business teams.</li>
+                <li>Worked in a large Nx monorepo across multiple Angular applications and shared libraries; contributed to reusable components, feature modules, and frontend code organization.</li>
+                <li>Implemented responsive, data-rich user interfaces using Angular, TypeScript, RxJS, NgRx, Angular Signals, SCSS, and REST API integrations.</li>
+                <li>Supported public-facing SSR, SEO, and performance initiatives, including Lighthouse/Core Web Vitals investigation, rendering issues, and frontend performance debugging.</li>
+                <li>Helped reduce duplicated frontend patterns by consolidating shared logic and reusable UI approaches while keeping existing application boundaries stable.</li>
+                <li>Participated in CI/CD-driven delivery through pull requests, automated checks, build troubleshooting, release verification, and production regression analysis.</li>
+                <li>Collaborated with product managers, designers, backend engineers, QA, and engineering leadership to clarify requirements, edge cases, and API integration details.</li>
+              </ul>
+            </article>
+
+            <article class="experience">
+              <div class="role-line">
+                <h3>Toolots - Senior Front-End Developer</h3>
+                <span>Cerritos, CA | Sep 2018 - Jun 2021</span>
+              </div>
+              <ul>
+                <li>Led frontend development for enterprise web and PWA applications using Angular 8-11, TypeScript, RxJS, NgRx, JavaScript, HTML, SCSS, Node.js, Material UI, and Flex Layout.</li>
+                <li>Architected and built Merchant Portal, a merchant-facing CRM/ERP web application used by 1,000+ merchants to manage inventory and platform details.</li>
+                <li>Built Gadget, an internal ERP/PWA application used by warehouse, operations, administrative, and cross-department teams on desktop, tablet, iPad, and mobile browsers.</li>
+                <li>Designed and implemented responsive UI features across mobile, tablet, desktop, and PWA workflows while maintaining cross-browser compatibility.</li>
+                <li>Partnered with backend engineers, product teams, and internal departments to translate dynamic business requirements into production frontend features.</li>
+                <li>Mentored junior developers, assisted with code reviews, and promoted maintainable frontend practices.</li>
+              </ul>
+            </article>
+
+            <article class="experience">
+              <div class="role-line">
+                <h3>Solid Commerce - Software Engineer</h3>
+                <span>Marina del Rey, CA | May 2017 - Jul 2018</span>
+              </div>
+              <ul>
+                <li>Implemented Angular, JavaScript, HTML, CSS, and Node.js features for greenfield and legacy SaaS e-commerce applications.</li>
+                <li>Built responsive, pixel-accurate UI components from design mockups and product requirements in a structured SDLC environment.</li>
+                <li>Developed and maintained REST APIs using .NET/C# and created Swagger documentation for engineering and partner teams.</li>
+                <li>Contributed to UPS Marketplace Setup, a client-facing application used by 10,000+ UPS e-Fulfillment retailers to connect with marketplaces.</li>
+                <li>Modernized legacy user interfaces into Angular-based experiences and debugged UI/API issues across product, design, engineering, and QA teams.</li>
+              </ul>
+            </article>
+
+            <article class="experience">
+              <div class="role-line">
+                <h3>Hack Reactor - Software Engineering Mentor / Associate Instructor</h3>
+                <span>San Francisco / Remote | Dec 2016 - Apr 2017</span>
+              </div>
+              <ul>
+                <li>Mentored 50+ prospective engineers in JavaScript, computer science concepts, modern frameworks, code reviews, and coursework support.</li>
+                <li>Coordinated educational events and mentor check-ins to support student progress, technical growth, and intervention strategies for common engineering anti-patterns.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="shell">
+        <div class="section-head">
+          <h2>Selected Highlights</h2>
+          <p>Representative platforms and product areas from recent production work.</p>
+        </div>
+        <div class="project-list">
+          <article class="project">
+            <h3>Crexi Frontend Platform</h3>
+            <ul>
+              <li>Angular/Nx monorepo work across shared libraries, production feature development, SSR/SEO concerns, CI/CD workflows, and cross-team API integration.</li>
+            </ul>
+          </article>
+          <article class="project">
+            <h3>Merchant Portal</h3>
+            <ul>
+              <li>Angular merchant-facing CRM/ERP application used by 1,000+ Toolots merchants to manage inventory and platform details.</li>
+            </ul>
+          </article>
+          <article class="project">
+            <h3>Gadget ERP/PWA</h3>
+            <ul>
+              <li>Internal Toolots operations application used by warehouse and administrative teams across desktop, tablet, iPad, and mobile browsers.</li>
+            </ul>
+          </article>
+          <article class="project">
+            <h3>UPS Marketplace Setup</h3>
+            <ul>
+              <li>Client-facing UPS e-Fulfillment marketplace connection app used by 10,000+ retailers, including UI development, REST APIs, and Swagger documentation.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="shell">
+        <div class="contact-band">
+          <div>
+            <h2>Let's build useful software.</h2>
+            <p>
+              I am open to senior front-end engineering roles focused on Angular,
+              TypeScript, enterprise SaaS, frontend platforms, and teams adopting
+              practical AI-assisted development workflows.
+            </p>
+          </div>
+          <div class="actions">
+            <a class="button dark" href="mailto:alonzoalden@gmail.com">Email Me</a>
+            <a
+              class="button"
+              href="assets/Alonzo_Alden_Senior_Frontend_Engineer_Resume_2026.pdf"
+              download
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell">
+        <span>&copy; 2026 Alonzo Alden. Static portfolio and resume site.</span>
+      </div>
+    </footer>
+  </body>
+</html>
