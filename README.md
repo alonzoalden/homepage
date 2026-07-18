@@ -1,13 +1,13 @@
 # alonzoalden.com
 
-Static portfolio and resume site for Alonzo Alden, positioned as a Senior Full-Stack Product Engineer with deep Angular and TypeScript expertise.
+Static portfolio and resume site for Alonzo Alden, positioned as a Senior Front-End Engineer specializing in Angular, TypeScript, and complex enterprise applications.
 
 ## Structure
 
 - `index.html` - Complete static website, including the HTML resume.
 - `assets/hero-workspace.jpg` - Project-local hero image asset.
-- `assets/Alonzo_Alden_Senior_Full_Stack_Product_Engineer_Resume_2026.pdf` - Primary downloadable resume PDF.
-- `assets/Alonzo_Alden_Senior_Frontend_Engineer_Resume_2026.pdf` - Alternate Angular/front-end resume PDF.
+- `assets/Alonzo_Alden_Senior_Frontend_Engineer_Angular_2026.pdf` - Primary downloadable resume PDF.
+- `assets/Alonzo_Alden_Senior_Frontend_Engineer_Angular_2026.docx` - Editable Word version of the primary resume.
 - `CNAME` - Custom domain for GitHub Pages.
 
 ## Deploy
